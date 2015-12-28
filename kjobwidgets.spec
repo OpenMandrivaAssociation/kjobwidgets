@@ -18,6 +18,7 @@ BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: pkgconfig(Qt5X11Extras)
 BuildRequires: pkgconfig(Qt5Test)
+BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(KF5CoreAddons)
 BuildRequires: cmake(KF5WidgetsAddons)
 Requires: %{libname} = %{EVRD}
