@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kjobwidgets
-Version:	5.41.0
+Version:	5.42.0
 Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Widgets for tracking KJob instances
@@ -62,6 +62,7 @@ done
 
 %files -f %{name}.lang
 %{_datadir}/dbus-1/interfaces/*
+%{_sysconfdir}/xdg/kjobwidgets.categories
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
