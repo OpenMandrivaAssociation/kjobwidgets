@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: kjobwidgets
-Version:	5.59.0
+Version:	5.60.0
 Release:	1
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Widgets for tracking KJob instances
@@ -86,11 +86,14 @@ for i in .%{_datadir}/locale/*/LC_MESSAGES/*.qm; do
 	echo $i |cut -b2- >>$L
 done
 
+# Let's not ship py2 crap unless and until something still needs it...
+rm -rf %{buildroot}%{_libdir}/python2*
+
 [ -s %{buildroot}%{python_sitearch}/PyKF5/__init__.py ] || rm -f %{buildroot}%{python_sitearch}/PyKF5/__init__.py
 
 %files -f %{name}.lang
 %{_datadir}/dbus-1/interfaces/*
-%{_sysconfdir}/xdg/kjobwidgets.categories
+%{_datadir}/qlogging-categories5/kjobwidgets.categories
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
