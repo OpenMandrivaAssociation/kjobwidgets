@@ -6,7 +6,7 @@
 
 Name: kjobwidgets
 Version:	5.74.0
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{stable}/frameworks/%(echo %{version} |cut -d. -f1-2)/%{name}-%{version}.tar.xz
 Summary: Widgets for tracking KJob instances
 URL: http://kde.org/
